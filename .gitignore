@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Node
+node_modules/
+dist/
+build/
+
+# Editoren und Systeme
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Lokale Daten (Gesetzestexte, DB-Dumps, Backups)
+data/
+*.dump
+*.sqlite

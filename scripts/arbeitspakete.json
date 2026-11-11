@@ -1,0 +1,107 @@
+{
+  "milestones": [
+    {"title": "M1 – RIS-Problemanalyse", "due": "2026-10-30", "description": "RIS-Probleme und Anforderungen dokumentiert"},
+    {"title": "M2 – Konzept & Technologie-Stack", "due": "2026-11-30", "description": "Konzept, Technologie-Stack, Datenmodell und Wireframes fertig; Prototyp bestätigt die Machbarkeit"},
+    {"title": "M3/M4 – Import & Speicherung", "due": "2027-01-29", "description": "Import und Speicherung laufen"},
+    {"title": "M5 – KI-Suche", "due": "2027-02-26", "description": "KI-Suche liefert Treffer"},
+    {"title": "M6/M7 – Webseite & Qualitätsmessung", "due": "2027-03-31", "description": "Webseite fertig, Qualitätsmessung durchgeführt"},
+    {"title": "M8 – Usability-Test", "due": "2027-04-30", "description": "Usability-Tests fertig"},
+    {"title": "Schriftliche Arbeit", "due": "2027-06-21", "description": "Erste Fassung 31.05.2027, Abgabe 21.06.2027"}
+  ],
+  "labels": [
+    {"name": "ivan", "color": "1f77b4", "description": "Verantwortlich: Ivan Lucic"},
+    {"name": "jakub", "color": "2ca02c", "description": "Verantwortlich: Jakub Tworek"},
+    {"name": "alexandr", "color": "9467bd", "description": "Verantwortlich: Alexandr Aduc"},
+    {"name": "gemeinsam", "color": "7f7f7f", "description": "Gemeinsames Arbeitspaket"},
+    {"name": "arbeitspaket", "color": "fbca04", "description": "Haupt-Arbeitspaket mit Sub-Issues"},
+    {"name": "zusatzziel", "color": "c5def5", "description": "Optionales Ziel laut Antrag"},
+    {"name": "klären", "color": "d93f0b", "description": "Mit Betreuern klären"}
+  ],
+  "packages": [
+    {
+      "title": "AP-1 RIS-Problemanalyse",
+      "milestone": "M1 – RIS-Problemanalyse",
+      "body": "Ziel M1: Mind. 10 dokumentierte Probleme, Befragung von mind. 5 Personen ohne Rechtswissen, abgeleitete Anforderungsliste.",
+      "children": [
+        {"title": "AP-1.1 RIS-Bedienprobleme dokumentieren", "owner": "ivan", "body": "Jedes Problem mit Schritten zum Nachstellen, Screenshot, Datum und betroffener Nutzergruppe. Mind. 10 Probleme."},
+        {"title": "AP-1.2 Befragung von 5 Personen ohne Rechtswissen", "owner": "ivan", "body": "Gleiche 3–4 Aufgaben wie später im Usability-Test (M8). Einverständniserklärung einholen."},
+        {"title": "AP-1.3 Anforderungsliste ableiten", "owner": "ivan", "body": "Jede Anforderung verweist auf ein dokumentiertes Problem."},
+        {"title": "AP-1.4 RIS-Schnittstelle recherchieren", "owner": "gemeinsam", "body": "Verfügbare Gesetze, Datenformat, Abfragegrenzen der OGD-API v2.6, History-Abfrage für Änderungen."}
+      ]
+    },
+    {
+      "title": "AP-2 Konzept & Technologie-Stack",
+      "milestone": "M2 – Konzept & Technologie-Stack",
+      "body": "Ziel M2: Dokumentierte Architektur und begründete Technologieentscheidung (inkl. Such-Engine); Prototyp bestätigt die Machbarkeit.",
+      "children": [
+        {"title": "AP-2.1 Systemarchitektur erarbeiten", "owner": "gemeinsam", "body": "Komponenten: Import, Datenbank, Such-Engine, REST-API, Frontend."},
+        {"title": "AP-2.2 Datenbankdesign und Datenmodell", "owner": "alexandr", "body": "Abschnitte pro Absatz mit Metadaten (Gesetz, Paragraph, Absatz, Überschrift, Fassungsdatum, Link)."},
+        {"title": "AP-2.3 Wireframes der Suchmaske", "owner": "ivan", "body": "Eingabefeld, Ergebniskarten (Gesetz, Paragraph, Titel, Relevanz, Volltext, RIS-Link), Filter nach Gesetz."},
+        {"title": "AP-2.4 Lösungsansätze für die Such-Engine bewerten", "owner": "alexandr", "body": "Mind. 2 Ansätze, z. B. semantische Suche (Embeddings) und Hybrid; Volltextsuche als Vergleichsbasis."},
+        {"title": "AP-2.5 Prototyp zur Machbarkeit", "owner": "gemeinsam", "body": "Ein Gesetz importieren, eine Suchanfrage beantworten."},
+        {"title": "AP-2.6 Technologieentscheidung dokumentieren", "owner": "gemeinsam", "body": "Begründung pro Komponente, mit Alternativen."}
+      ]
+    },
+    {
+      "title": "AP-3 Import & Speicherung",
+      "milestone": "M3/M4 – Import & Speicherung",
+      "body": "Ziele M3 und M4: Gesetze lokal gespeichert, Änderungen werden automatisch erkannt; jeder Abschnitt mit Metadaten für die Suche aufbereitet.",
+      "children": [
+        {"title": "AP-3.1 Backend-Grundgerüst und Datenbankanbindung", "owner": "jakub", "body": ""},
+        {"title": "AP-3.2 Import der Gesetze aus der RIS-Schnittstelle", "owner": "jakub", "body": "DSG, NISG, TKG 2021, ausgewählte StGB-Paragraphen. 1–2 s Pause zwischen Seitenabfragen."},
+        {"title": "AP-3.3 DSGVO-Import aus EUR-Lex", "owner": "jakub", "labels": ["klären"], "body": "Die DSGVO steht nicht als konsolidiertes Bundesrecht im RIS. Mit Betreuern klären, weil M3 sie als RIS-Import nennt."},
+        {"title": "AP-3.4 Automatische Änderungserkennung", "owner": "jakub", "body": "History-Abfrage des RIS (SOAP) plus Hash pro Abschnitt."},
+        {"title": "AP-3.5 Aufbereitung der Gesetzestexte in Abschnitte", "owner": "alexandr", "body": ""},
+        {"title": "AP-3.6 Backup und Datensicherung", "owner": "alexandr", "body": ""}
+      ]
+    },
+    {
+      "title": "AP-4 KI-Suche",
+      "milestone": "M5 – KI-Suche",
+      "body": "Ziel M5: Problemstellung in Alltagssprache (auch Umgangssprache und Tippfehler) liefert die Top-5-Gesetzesstellen im Originaltext.",
+      "children": [
+        {"title": "AP-4.1 Testfragen-Katalog mit Soll-Paragraphen", "owner": "alexandr", "labels": ["klären"], "body": "Mind. 30 praxisnahe Fragen, auch mit Umgangssprache und Tippfehlern. Vor der Wahl des Suchansatzes schreiben. Soll-Paragraphen fachlich prüfen lassen."},
+        {"title": "AP-4.2 Volltextsuche als Vergleichsbasis", "owner": "alexandr", "body": ""},
+        {"title": "AP-4.3 Semantische Suche", "owner": "alexandr", "body": "Mind. 2 KI-Ansätze laut Antrag, z. B. Embeddings und Embeddings mit Reranking."},
+        {"title": "AP-4.4 Such-Schnittstelle (REST-API)", "owner": "jakub", "body": "Problembeschreibung an die Such-Engine übergeben, nach Relevanz sortierte Treffer liefern."}
+      ]
+    },
+    {
+      "title": "AP-5 Webseite & Qualitätsmessung",
+      "milestone": "M6/M7 – Webseite & Qualitätsmessung",
+      "body": "Ziele M6 und M7: Ergebnis-Maske in mind. 2 Browsern auf Desktop und Smartphone; Vergleich der KI-Suche mit der Volltextsuche.",
+      "children": [
+        {"title": "AP-5.1 Suchmaske responsiv umsetzen", "owner": "ivan", "body": ""},
+        {"title": "AP-5.2 Frontend an das Backend anbinden", "owner": "ivan", "body": ""},
+        {"title": "AP-5.3 Absicherung der Anwendung", "owner": "jakub", "body": "Eingaben prüfen, Rate-Limit, Suchanfragen nicht dauerhaft speichern (können personenbezogene Daten enthalten)."},
+        {"title": "AP-5.4 Qualitätsmessung durchführen", "owner": "alexandr", "body": "Recall@5 und MRR pro Ansatz."}
+      ]
+    },
+    {
+      "title": "AP-6 Usability-Test",
+      "milestone": "M8 – Usability-Test",
+      "body": "Ziel M8: Mind. 5 Personen (davon mind. 2 am Smartphone) lösen dieselben Aufgaben im RIS und auf der neuen Webseite; gemessen werden Dauer und Auffinden der richtigen Stelle.",
+      "children": [
+        {"title": "AP-6.1 Usability-Test planen", "owner": "ivan", "body": "Aufgaben, Messbogen, Einverständniserklärung. Reihenfolge RIS/neue Seite abwechseln."},
+        {"title": "AP-6.2 Usability-Test durchführen", "owner": "ivan", "body": ""},
+        {"title": "AP-6.3 Usability-Test auswerten", "owner": "ivan", "body": ""}
+      ]
+    },
+    {
+      "title": "AP-7 Schriftliche Arbeit & Präsentation",
+      "milestone": "Schriftliche Arbeit",
+      "body": "Erste Fassung bis 31.05.2027, Abgabe 21.06.2027 (2 gedruckte Exemplare und digital).",
+      "children": [
+        {"title": "AP-7.1 Erste Fassung der schriftlichen Arbeit", "owner": "gemeinsam", "body": "Jede Person schreibt ihre eigenen Kapitel, mit Autorenangabe."},
+        {"title": "AP-7.2 Endfassung und Abgabe", "owner": "gemeinsam", "body": "Inkl. Begleitprotokolle im Anhang."},
+        {"title": "AP-7.3 Präsentation vorbereiten", "owner": "gemeinsam", "body": ""},
+        {"title": "AP-7.4 Programmcode mit Installationsanleitung", "owner": "jakub", "body": ""}
+      ]
+    }
+  ],
+  "extras": [
+    {"title": "Zusatz: Themeneinstieg auf der Startseite", "owner": "ivan", "milestone": "M6/M7 – Webseite & Qualitätsmessung", "labels": ["zusatzziel"], "body": "Optionales Ziel laut Antrag: „Meine Rechte“, „Hackerangriff melden“."},
+    {"title": "Zusatz: Entscheidungen der Datenschutzbehörde zu Paragraphen", "owner": "jakub", "milestone": "M6/M7 – Webseite & Qualitätsmessung", "labels": ["zusatzziel"], "body": "Optionales Ziel laut Antrag. Zuordnung über das Norm-Feld der DSB-Entscheidungen im RIS."},
+    {"title": "Zusatz: Merkliste", "owner": "ivan", "milestone": "M6/M7 – Webseite & Qualitätsmessung", "labels": ["zusatzziel"], "body": "Optionales Ziel laut Antrag: Paragraphen speichern und später wieder öffnen."}
+  ]
+}

@@ -1,0 +1,44 @@
+name: Arbeitspaket
+description: Neues Arbeitspaket (AP) anlegen
+title: "AP-x.y "
+body:
+  - type: textarea
+    id: ziel
+    attributes:
+      label: Ziel
+      description: Was soll nach diesem AP erreicht sein?
+    validations:
+      required: true
+  - type: textarea
+    id: ergebnis
+    attributes:
+      label: Ergebnis
+      description: Woran erkennt man, dass das AP fertig ist? (Datei, Funktion, Dokument)
+    validations:
+      required: true
+  - type: dropdown
+    id: verantwortlich
+    attributes:
+      label: Verantwortlich
+      options:
+        - Ivan Lucic
+        - Jakub Tworek
+        - Alexandr Aduc
+        - Gemeinsam
+    validations:
+      required: true
+  - type: input
+    id: soll
+    attributes:
+      label: Geplanter Aufwand (Stunden)
+      placeholder: "z. B. 8"
+  - type: input
+    id: zeitraum
+    attributes:
+      label: Zeitraum
+      placeholder: "z. B. 01.12.2026 – 15.12.2026"
+  - type: textarea
+    id: abhaengig
+    attributes:
+      label: Abhängig von
+      description: Welche APs müssen vorher fertig sein? (z. B. #12)
